@@ -1,0 +1,122 @@
+h1{
+  text-align: center;
+}
+i{
+  float: right;
+  cursor: pointer;
+}
+mat-error{
+  display: block;
+  font-size: 12px;
+}
+form{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 440px;
+  .form-box{
+    display: inline-block;
+    margin: 10px 5px;
+    input{
+      display: inline-block;
+      width: 200px;
+      height: 30px;
+      background-color: #FAFBFD;
+      border: 1px solid #D3D4D6;
+    }
+    label{
+      display: block;
+      margin: 5px 0;
+    }
+    textarea{
+      width: 417px;
+      height: 100px;
+      background-color: #FAFBFD;
+      border: 1px solid #D3D4D6;
+      resize: none;
+    }
+  }
+  .form-box-btn{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    .form-submit{
+      input{
+      }
+    }
+    .checkbox{
+      input{
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #FAFBFD;
+      	border: 1px solid #cacece;
+      	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+      	padding: 9px;
+      	display: inline-block;
+      	position: relative;
+        &:focus{
+          outline: none;
+        }
+        &:checked {
+        	border: 1px solid #adb8c0;
+        	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+        	color: #99a1a7;
+        }
+        &:checked:after {
+        	content: '\2714';
+        	font-size: 14px;
+        	position: absolute;
+        	top: 0px;
+        	left: 3px;
+        	color: #D4191F;
+        }
+      }
+      span{
+        position: relative;
+        bottom: 6px;
+      }
+    }
+    button{
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      color: #fff;
+      height: 60px;
+      line-height: 60px;
+      background: #D4191F;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 300;
+      cursor: pointer;
+      &:disabled, [disabled]{
+        background-color: #D4191F;
+        color: #fff;
+        cursor: not-allowed;
+      }
+    }
+    a{
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 610px){
+  h1{
+    font-size: 18px;
+  }
+  form{
+    max-width: 100%;
+    .form-box{
+      display: block;
+      width: 100%;
+      input{
+        min-width: 100%;
+      }
+      textarea{
+        width: 100%;
+      }
+    }
+  }
+}

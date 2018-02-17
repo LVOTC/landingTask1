@@ -1,0 +1,34 @@
+
+<i class="material-icons" mat-button (click)="onNoClick()">clear</i>
+
+<h1>Your details here</h1>
+  <form #f="ngForm" (ngSubmit)="onSave(f)" [formGroup]="complexForm">
+    <div class="form-box" [ngClass]="{'has-error':!complexForm.controls['fullName'].valid}">
+      <label>Full name *</label>
+      <input type="text" formControlName="fullName" [(ngModel)]="contact.fullName" [formControl]="complexForm.controls['fullName']">
+      <mat-error *ngIf="complexForm.controls['fullName'].hasError('required') && complexForm.controls['fullName'].touched">You must include a first name.</mat-error>
+    </div>
+    <div class="form-box form-group">
+      <label>Phone</label>
+      <input type="number" formControlName="phone" value="">
+    </div>
+    <div class="form-box" [ngClass]="{'has-error':!complexForm.controls['email'].valid && complexForm.controls['email'].touched}">
+      <label>Email *</label>
+      <input type="text" formControlName="email" [(ngModel)]="contact.email" [formControl]="email">
+       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-box">
+      <label>Your message</label>
+      <textarea name="text" formControlName="text" value="">
+      </textarea>
+    </div>
+    <p>* required</p>
+    <div class="form-box-btn">
+      <div class="checkbox">
+        <input type="checkbox" formControlName="checkbox" [(ngModel)]="contact.checkbox" [formControl]="complexForm.controls['checkbox']" required>
+        <span>Agree on terms</span>
+      </div>
+        <button [disabled]="!complexForm.valid" type="submit" (click)="openDialog()" name="button">Get in touch</button>
+        <a href="">Terms and conditions</a>
+    </div>
+  </form>
